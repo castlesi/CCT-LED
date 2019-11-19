@@ -27,76 +27,18 @@
 	and will support Indigo and Indigo Touch's native UI for relay type
 	devices.
 	-->
-	<Device type="relay" id="myRelayType">
-		<Name>Example Relay Module</Name>
-		<ConfigUI>
-			<!-- The ConfigUI here is just an example of the type of device
-			specific UI that might be needed. Here you might specify a text
-			field for an IP address, a serial port popup, or other device
-			specific options.
-			-->
-			<Field id="address" type="textfield" defaultValue="123456">
-				<Label>Module Address:</Label>
-			</Field>
-		</ConfigUI>
-		<States>
-			<!-- By default relay type devices automatically inherit the
-			state: onOffState.
-	
-			The plugin can specify additional custom states and custom
-			actions (in Actions.xml) to modify custom states. As an example
-			here, we define a new custom state, backlightBrightness, which
-			is used to control the brightness of the backlit display of
-			the module.
-			-->
-			<State id="backlightBrightness">
-				<ValueType>Integer</ValueType>
-				<TriggerLabel>Backlight Brightness</TriggerLabel>
-				<ControlPageLabel>Backlight Brightness</ControlPageLabel>
-			</State>
-		</States>
-	</Device>
 
 	<!-- This device illustrates how a plugin can inherit Indigo's dimmer
 	device behavior including on/off/brightness states, relay/dimmer
 	actions (on/off/toggle/set brightness/etc.), and will support Indigo
 	and Indigo Touch's native UI for relay/dimmer type devices.
 	-->
-	<Device type="dimmer" id="myDimmerType">
-		<Name>Example Dimmer Module</Name>
-		<ConfigUI>
-			<!-- The ConfigUI here is just an example of the type of device
-			specific UI that might be needed. Here you might specify a text
-			field for an IP address, a serial port popup, or other device
-			specific options.
-			-->
-			<Field id="address" type="textfield" defaultValue="123456">
-				<Label>Module Address:</Label>
-			</Field>
-		</ConfigUI>
-		<States>
-			<!-- By default dimmer type devices automatically inherit the
-			states: onOffState, brightnessLevel.
-	
-			The plugin can specify additional custom states and custom
-			actions (in Actions.xml) to modify custom states. As an example
-			here, we define a new custom state, backlightBrightness, which
-			is used to control the brightness of the backlit display of
-			the module.
-			-->
-			<State id="backlightBrightness">
-				<ValueType>Integer</ValueType>
-				<TriggerLabel>Backlight Brightness</TriggerLabel>
-				<ControlPageLabel>Backlight Brightness</ControlPageLabel>
-			</State>
-		</States>
-	</Device>
 
 	<!-- This device illustrates how a plugin can inherit Indigo's dimmer
 	device that uses RGB and White color levels.
 	-->
 	<Device type="dimmer" id="myColorType">
-		<Name>Example Color Module</Name>
+		<Name>Dummy CCT device</Name>
 		<ConfigUI>
 			<!-- The ConfigUI here is just an example of the type of device
 			specific UI that might be needed. Here you might specify a text
@@ -160,33 +102,5 @@
 	device behavior with the lock sub-type, so that it shows the lock
 	icons and verbiage, and can be targetted by the lock/unlock actions.
 	-->
-	<Device type="relay" id="myLockType">
-		<Name>Example Lock Module</Name>
-		<ConfigUI>
-			<!-- The ConfigUI here is just an example of the type of device
-			specific UI that might be needed. Here you might specify a text
-			field for an IP address, a serial port popup, or other device
-			specific options.
-			-->
-			<Field id="address" type="textfield" defaultValue="123456">
-				<Label>Module Address:</Label>
-			</Field>
-		</ConfigUI>
-		<States>
-			<!-- By default relay type devices automatically inherit the
-			state: onOffState.
-	
-			The plugin can specify additional custom states and custom
-			actions (in Actions.xml) to modify custom states. As an example
-			here, we define a new custom state, backlightBrightness, which
-			is used to control the brightness of the backlit display of
-			the module.
-			-->
-			<State id="backlightBrightness">
-				<ValueType>Integer</ValueType>
-				<TriggerLabel>Backlight Brightness</TriggerLabel>
-				<ControlPageLabel>Backlight Brightness</ControlPageLabel>
-			</State>
-		</States>
-	</Device>
+
 </Devices>
