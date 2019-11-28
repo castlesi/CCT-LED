@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Devices>     
+    <Device type="dimmer" id="masqDimmer">
+        <Name>Dimmer Device</Name>
+        <ConfigUI>
+            <SupportURL>https://github.com/siclarkplugins/CCT-LED</SupportURL>
+			<Field id="SupportsOnState" type="checkbox" defaultValue="true" hidden="true" />
+			<Field id="SupportsStatusRequest" type="checkbox" defaultValue="false" hidden="true" />
+			<Field type="textfield" id="deviceClass" defaultValue="Plugin" hidden="true" />
+			<Field type="checkbox" id="SupportsRGB" defaultValue="true" />
+			<Field type="checkbox" id="SupportsWhite" defaultValue="true">
+				<Label>Supports White:</Label>
+				<Description>Shows White level fields in UI</Description>
+			</Field>
+			<Field type="checkbox" id="SupportsTwoWhiteLevels" defaultValue="true" enabledBindingId="SupportsWhite">
+				<Label>Supports White 2:</Label>
+				<Description>Shows Two White level fields in UI</Description>
+			</Field>
+
+            <Field id="sep1" type="separator"/>
+
+			<Field type="menu" id="baseWarmDevice">
+				<Label>Warm white device:</Label>
+				<List class="indigo.devices" filter="indigo.dimmer,indigo.zwave" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+			<Field type="menu" id="masqWarmState">
+				<Label>Brightness state:</Label>
+                <List method="getWarmStateList" dynamicReload="true" class="self" filter="" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+
+            <Field id="sep2" type="separator"/>
+
+			<Field type="menu" id="baseCoolDevice">
+				<Label>Cool white device:</Label>
+				<List class="indigo.devices" filter="indigo.dimmer,indigo.zwave" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+			<Field type="menu" id="masqCoolState">
+				<Label>Brightness state:</Label>
+                <List method="getCoolStateList" dynamicReload="true" class="self" filter="" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+
+            <Field id="sep3" type="separator"/>
+
+			<Field type="menu" id="baseBrightDevice">
+				<Label>Cool white device:</Label>
+				<List class="indigo.devices" filter="indigo.dimmer,indigo.zwave" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+			<Field type="menu" id="masqBrightState">
+				<Label>Brightness state:</Label>
+                <List method="getCoolStateList" dynamicReload="true" class="self" filter="" />
+                <CallbackMethod>menuChanged</CallbackMethod>
+			</Field>
+            <Field id="sep4" type="separator"/>
+         </ConfigUI>
+    </Device>
+</Devices>
