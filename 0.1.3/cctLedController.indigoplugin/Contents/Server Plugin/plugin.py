@@ -106,7 +106,7 @@ class Plugin(indigo.PluginBase):
     ################################################################################
 
     def deviceDeleted(self, delDevice):
-#        indigo.debugger()
+        # indigo.debugger()
         indigo.PluginBase.deviceDeleted(self, delDevice)
         for myDeviceId, myDevice in sorted(self.masqueradeList.iteritems()):
             baseWarmDevice = int(myDevice.pluginProps["baseWarmDevice"])
@@ -142,7 +142,7 @@ class Plugin(indigo.PluginBase):
         # indigo.debugger()
         masqWarmState = cctDevice.pluginProps["masqWarmState"]
         if oldWarmDevice == None or oldWarmDevice.states[masqWarmState] != newWarmDevice.states[masqWarmState]:
-            #indigo.debugger()
+            # indigo.debugger()
             baseWarmValue = int(newWarmDevice.states[masqWarmState])
             cctDevice.updateStateOnServer(key='whiteLevel', value=baseWarmValue)
 
@@ -150,7 +150,7 @@ class Plugin(indigo.PluginBase):
         # indigo.debugger()
         masqCoolState = cctDevice.pluginProps["masqCoolState"]
         if oldCoolDevice == None or oldCoolDevice.states[masqCoolState] != newCoolDevice.states[masqCoolState]:
-            #indigo.debugger()
+            # indigo.debugger()
             baseCoolValue = int(newCoolDevice.states[masqCoolState])
             cctDevice.updateStateOnServer(key='whiteLevel2', value=baseCoolValue)
 
@@ -158,7 +158,7 @@ class Plugin(indigo.PluginBase):
         indigo.debugger()
         masqBrightState = cctDevice.pluginProps["masqBrightState"]
         if oldBrightDevice == None or oldBrightDevice.states[masqBrightState] != newBrightDevice.states[masqBrightState]:
-            #indigo.debugger()
+            # indigo.debugger()
             baseBrightValue = int(newBrightDevice.states[masqBrightState])
             baseOnState = newBrightDevice.states['onOffState']
             self.logger.debug(baseBrightValue)
@@ -171,22 +171,22 @@ class Plugin(indigo.PluginBase):
 
     def actionControlDevice(self, action, dev):
             if action.deviceAction == indigo.kDeviceAction.TurnOn:
-                #indigo.debugger()
+                # indigo.debugger()
                 self.logger.debug(action.actionValue)
                 self.logger.debug(u"actionControlDevice: \"%s\" Turn On" % dev.name)
                 indigo.device.turnOn(int(dev.pluginProps["baseBrightDevice"]))
             elif action.deviceAction == indigo.kDeviceAction.TurnOff:
-                #indigo.debugger()
+                # indigo.debugger()
                 self.logger.debug(action.actionValue)
                 self.logger.debug(u"actionControlDevice: \"%s\" Turn Off" % dev.name)
                 indigo.device.turnOff(int(dev.pluginProps["baseBrightDevice"]))
             elif action.deviceAction == indigo.kDeviceAction.SetBrightness:
-                #indigo.debugger()
+                # indigo.debugger()
                 self.logger.debug(action.actionValue)
                 self.logger.debug(int(dev.pluginProps["baseBrightDevice"]))
                 indigo.dimmer.setBrightness(int(dev.pluginProps["baseBrightDevice"]),  action.actionValue)
             elif action.deviceAction == indigo.kDeviceAction.SetColorLevels:
-                #indigo.debugger()
+                # indigo.debugger()
                 self.logger.debug(action.actionValue)
                 self.logger.debug(action.deviceAction)
                 actionColorVals = action.actionValue
